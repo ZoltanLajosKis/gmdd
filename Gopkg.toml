@@ -1,0 +1,28 @@
+[[constraint]]
+  name = "github.com/ZoltanLajosKis/go-assets"
+  branch = "master"
+
+[[constraint]]
+  name = "github.com/alecthomas/kingpin"
+  version = "^2.2.5"
+
+[[constraint]]
+  name = "github.com/benbjohnson/ego"
+  branch = "master"
+
+[[constraint]]
+  name = "github.com/russross/blackfriday"
+  version = "^2.0.0"
+
+[[constraint]]
+  name = "github.com/shurcooL/vfsgen"
+  branch = "master"
+
+[[constraint]]
+  name = "github.com/sirupsen/logrus"
+  version = "^1.0.2"
+
+[[constraint]]
+  name = "golang.org/x/tools"
+  branch = "master"
+

@@ -1,0 +1,10 @@
+<%
+package templates
+
+func InlineMath(w io.Writer, content []byte) {
+%>
+
+<code class="inline-math"><% w.Write(content) %></code>
+
+<% } %>
+

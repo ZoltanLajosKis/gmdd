@@ -1,0 +1,36 @@
+<%
+package templates
+
+func Header(w io.Writer, title string) {
+%>
+
+<!DOCTYPE html>
+<html>
+<title><%= title %></title>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/__gmdd__/github-markdown.css" type="text/css" media="all">
+<link rel="stylesheet" href="/__gmdd__/katex/katex.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="/__gmdd__/mermaid.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="/__gmdd__/highlightjs.min.css" type="text/css" media="all">
+<link rel="stylesheet" href="/__gmdd__/gmdd.css" type="text/css" media="all">
+</head>
+<body>
+<article class="markdown-body">
+
+<%
+}
+
+func Footer(w io.Writer) {
+%>
+
+</article>
+<script src="/__gmdd__/katex/katex.min.js"></script>
+<script src="/__gmdd__/katex/contrib/auto-render.min.js"></script>
+<script src="/__gmdd__/mermaid.min.js"></script>
+<script src="/__gmdd__/highlightjs.min.js"></script>
+<script src="/__gmdd__/gmdd.js"></script>
+</body></html>
+
+<% } %>
+
