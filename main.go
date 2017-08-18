@@ -20,7 +20,7 @@ var (
 		OverrideDefaultFromEnvar("GMDD_Addr").String()
 	port = kpn.Flag("port", "Listen port.").Short('p').Default("8000").
 		OverrideDefaultFromEnvar("GMDD_PORT").Int()
-	logLevel = kpn.Flag("loglevel", "Log level").Short('l').Default("warn").
+	logLevel = kpn.Flag("loglevel", "Log level.").Short('l').Default("warn").
 			OverrideDefaultFromEnvar("GMDD_LOGLEVEL").String()
 )
 
