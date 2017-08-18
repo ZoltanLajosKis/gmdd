@@ -1,7 +1,7 @@
 BINARY    := gmdd
 VERSION   := $(shell git describe --tags --abbrev=0)
 REVISION  := $(shell git rev-parse --short HEAD)
-LDFLAGS   := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\""
+LDFLAGS   := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\" -linkmode external -extldflags -static"
 
 SOURCES   := $(shell find . -name '*.go' | grep -v './vendor/')
 PACKAGES  := $(shell go list ./... | grep -v '/vendor/')
