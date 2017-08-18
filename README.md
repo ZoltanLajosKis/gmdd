@@ -39,13 +39,28 @@ identifier.
 
 Usage
 -----
-
-#### Build
+#### Docker
 ```sh
-make
+# Start
+docker run -d --rm \
+  --name gmdd \
+  -v ${ROOT_DIR}:/www:ro \
+  -p ${HOST_PORT}:8000 \
+  -u "$(id -u):$(id -g)" \
+  zoltanlajoskis/gmdd
+
+# Stop
+docker stop gmdd
 ```
 
-#### Run
+#### From source
 ```sh
-./gmdd [${ROOT_DIR}]
+# Build
+REPO="github.com/ZoltanLajosKis/gmdd"
+git clone "https://${REPO}.git" "${GOPATH}/src/${REPO}"
+cd "${GOPATH}/src/${REPO}"
+make
+
+# Start
+./gmdd "${ROOT_DIR}"
 ```
