@@ -25,6 +25,7 @@ var (
 )
 
 func main() {
+	kpn.HelpFlag.Short('h')
 	kpn.Parse()
 
 	lvl, err := log.ParseLevel(*logLevel)
