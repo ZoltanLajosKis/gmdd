@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Docker Cloud build hook.
+# $IMAGE_NAME is passed in by the build process.
+
+docker build \
+    --build-arg BUILD_DATE="$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+    --build-arg VERSION="$(git describe --tags --abbrev=0)" \
+    --build-arg REVISION="$(git rev-parse --short HEAD)" \
+    -t "${IMAGE_NAME}" .
+
