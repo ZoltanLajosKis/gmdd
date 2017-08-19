@@ -59,8 +59,18 @@ docker stop gmdd
 REPO="github.com/ZoltanLajosKis/gmdd"
 git clone "https://${REPO}.git" "${GOPATH}/src/${REPO}"
 cd "${GOPATH}/src/${REPO}"
-make
+make install
+
+# Or build without make
+REPO="github.com/ZoltanLajosKis/gmdd"
+go get -d "${REPO}"
+cd "${GOPATH}/src/${REPO}"
+dep ensure -v
+go generate
+VERSION=$(git describe --tags --abbrev=0)
+REVISION=$(git rev-parse --short HEAD)
+go install -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\""
 
 # Start
-./gmdd "${ROOT_DIR}"
+gmdd "${ROOT_DIR}"
 ```

@@ -1,7 +1,8 @@
 BINARY    := gmdd
 VERSION   := $(shell git describe --tags --abbrev=0)
 REVISION  := $(shell git rev-parse --short HEAD)
-LDFLAGS   := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\" -linkmode external -extldflags -static"
+LDFLAGS   := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\"
+LDFLAGS   += -linkmode external -extldflags -static"
 
 SOURCES   := $(shell find . -name '*.go' | grep -v './vendor/')
 PACKAGES  := $(shell go list ./... | grep -v '/vendor/')
@@ -18,6 +19,9 @@ TEMPLATES_OUT := $(patsubst generate/templates/%, ${TEMPLATES_PAT}, ${TEMPLATES_
 
 ${BINARY}: ${ASSETS_OUT} ${TEMPLATES_OUT} ${SOURCES} vendor
 		go build ${LDFLAGS} -o ${BINARY}
+
+install: ${ASSETS_OUT} ${TEMPLATES_OUT} ${SOURCES} vendor
+		go install ${LDFLAGS}
 
 ${ASSETS_OUT}: ${ASSETS_GEN} ${ASSETS_SRC} vendor
 		go run ${ASSETS_GEN}
