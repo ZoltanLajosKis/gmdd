@@ -1,5 +1,9 @@
 # Go markdown daemon (gmdd)
 
+[![Build Status](https://travis-ci.org/ZoltanLajosKis/gmdd.svg?branch=master)](https://travis-ci.org/ZoltanLajosKis/gmdd)
+[![Go Report Card](https://goreportcard.com/badge/github.com/ZoltanLajosKis/gmdd)](https://goreportcard.com/report/github.com/ZoltanLajosKis/gmdd)
+[![Image size](https://images.microbadger.com/badges/image/zoltanlajoskis/gmdd.svg)](https://microbadger.com/images/zoltanlajoskis/gmdd)
+
 Gmdd is a daemon for serving and highlighting markdown files with an
 opinionated set of features. It compiles into a single executable that
 encompasses all assets and configuration.
