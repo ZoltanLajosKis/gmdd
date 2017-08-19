@@ -14,8 +14,7 @@ ASSETS_OUT := assets/assets.go
 
 TEMPLATES_GEN := generate/templates.go
 TEMPLATES_SRC := $(shell find generate/templates/ -type f)
-TEMPLATES_PAT := templates/%.go
-TEMPLATES_OUT := $(patsubst generate/templates/%, ${TEMPLATES_PAT}, ${TEMPLATES_SRC})
+TEMPLATES_OUT := $(patsubst generate/templates/%, templates/%.go, ${TEMPLATES_SRC})
 
 
 ${BINARY}: ${ASSETS_OUT} ${TEMPLATES_OUT} ${SOURCES} vendor
@@ -27,7 +26,7 @@ install: ${ASSETS_OUT} ${TEMPLATES_OUT} ${SOURCES} vendor
 ${ASSETS_OUT}: ${ASSETS_GEN} ${ASSETS_SRC} vendor
 		go run ${ASSETS_GEN}
 
-${TEMPLATES_PAT}: ${TEMPLATES_GEN} ${TEMPLATES_SRC} vendor
+${TEMPLATES_OUT}: ${TEMPLATES_GEN} ${TEMPLATES_SRC} vendor
 		go run ${TEMPLATES_GEN}
 
 vendor: | dep
