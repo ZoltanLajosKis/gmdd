@@ -4,7 +4,6 @@ package main
 
 import (
 	"log"
-	"os"
 	"regexp"
 	"strings"
 
@@ -48,11 +47,7 @@ var (
 )
 
 func main() {
-	err := os.MkdirAll("assets", 0755)
-	if err != nil {
-		log.Panic(err)
-	}
-	err = as.Compile(sources, "assets/assets.go", "assets", "Assets", nil)
+	err := as.Compile(sources, "assets/assets.go", "assets", "Assets", nil)
 	if err != nil {
 		log.Panic(err)
 	}

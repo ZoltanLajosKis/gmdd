@@ -12,11 +12,6 @@ import (
 )
 
 func main() {
-	err := os.MkdirAll("templates", 0755)
-	if err != nil {
-		log.Panic(err)
-	}
-
 	prefix := "generate/templates"
 
 	filepath.Walk(prefix, func(path string, info os.FileInfo, err error) error {
