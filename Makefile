@@ -1,8 +1,9 @@
-BINARY    := gmdd
-VERSION   := $(shell git describe --tags --abbrev=0)
-REVISION  := $(shell git rev-parse --short HEAD)
-LDFLAGS   := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\"
-LDFLAGS   += -linkmode external -extldflags -static"
+BINARY     := gmdd
+BUILD_DATE := $(shell date -u +"%Y-%m-%dT%H:%M:%SZ")
+VERSION    := $(shell git describe --tags --abbrev=0)
+REVISION   := $(shell git rev-parse --short HEAD)
+LDFLAGS    := -ldflags "-X \"main.version=${VERSION}\" -X \"main.revision=${REVISION}\"
+LDFLAGS    += -linkmode external -extldflags -static"
 
 SOURCES   := $(shell find . -name '*.go' | grep -v './vendor/')
 PACKAGES  := $(shell go list ./... | grep -v '/vendor/')
@@ -47,6 +48,15 @@ update-deps: dep
 .PHONY: test
 test:
 		go test -cover -v $(PACKAGES)
+
+
+.PHONY: docker-build
+docker-build:
+		docker build \
+			--build-arg BUILD_DATE="${BUILD_DATE}" \
+			--build-arg VERSION="${VERSION}" \
+			--build-arg REVISION="${REVISION}" \
+			-t "gmdd" .
 
 
 .PHONY: clean
