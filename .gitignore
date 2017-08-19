@@ -4,6 +4,8 @@ gmdd
 # Generated source code
 assets/
 templates/
+!assets/placeholder.go
+!templates/placeholder.go
 
 # Dependencies
 vendor/

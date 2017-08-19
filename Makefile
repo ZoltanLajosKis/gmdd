@@ -52,5 +52,5 @@ clean:
 .PHONY: clean-all
 clean-all: clean
 		rm -rf vendor/
-		rm -rf assets/ templates/
+		rm -f ${ASSETS_OUT} ${TEMPLATES_OUT}
 
