@@ -4,8 +4,8 @@
 [[projects]]
   name = "github.com/ZoltanLajosKis/go-assets"
   packages = ["."]
-  revision = "c508eb850b3abdf9eba6fc61f28820c21e18d4fc"
-  version = "v0.2.0"
+  revision = "63c67f25f6d8a79be78a0cf8462aa18f867bbab9"
+  version = "v0.2.2"
 
 [[projects]]
   branch = "master"
@@ -71,23 +71,23 @@
   branch = "master"
   name = "golang.org/x/crypto"
   packages = ["ssh/terminal"]
-  revision = "b176d7def5d71bdd214203491f89843ed217f420"
+  revision = "eb71ad9bd329b5ac0fd0148dd99bd62e8be8e035"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/sys"
   packages = ["unix","windows"]
-  revision = "9f7170bcd8e9f4d3691c06401119c46a769a1e03"
+  revision = "07c182904dbd53199946ba614a412c61d3c548f5"
 
 [[projects]]
   branch = "master"
   name = "golang.org/x/tools"
   packages = ["godoc/vfs","godoc/vfs/httpfs"]
-  revision = "84a35ef54dff3c5596983e180ec10919fc432242"
+  revision = "1807494da808122833b9bd8e3e5fa179ef237d41"
 
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "3865db17eee3d722e1dc8c500e62a3ea3df4d572d94b69510a8894d093900253"
+  inputs-digest = "1c176124dcb10f128e31c767f1cc1cca6fbf4e547b466ba4d25cb59b92d69760"
   solver-name = "gps-cdcl"
   solver-version = 1

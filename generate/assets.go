@@ -4,8 +4,6 @@ package main
 
 import (
 	"log"
-	"regexp"
-	"strings"
 
 	as "github.com/ZoltanLajosKis/go-assets"
 )
@@ -24,13 +22,9 @@ var (
 		{"__gmdd__/katex",
 			"https://github.com/Khan/KaTeX/releases/download/v0.8.1/katex.zip",
 			&as.Checksum{as.MD5, "90766d8ff1ac3cefef02c461b5e071d2"},
-			&as.Archive{as.Zip, func(path string) string {
-				re := regexp.MustCompile("katex/(contrib.*|fonts.*|images.*|katex\\.min\\.(css|js))")
-				if re.MatchString(path) {
-					return strings.Join([]string{"__gmdd__/", path}, "")
-				}
-				return ""
-			}}},
+			&as.Archive{as.Zip, as.ReMap(
+				"(katex/(contrib.*|fonts.*|images.*|katex\\.min\\.(css|js)))",
+				"__gmdd__/${1}")}},
 		{"__gmdd__/mermaid.min.css",
 			"https://unpkg.com/mermaid@7.0.4/dist/mermaid.min.css",
 			&as.Checksum{as.MD5, "d8ba2f2dc1bda6ab3bca4a9ba21dbd88"}, nil},

@@ -1,6 +1,6 @@
 [[constraint]]
   name = "github.com/ZoltanLajosKis/go-assets"
-  branch = "master"
+  version = "0.2.2"
 
 [[constraint]]
   name = "github.com/alecthomas/kingpin"
