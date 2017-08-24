@@ -1,3 +1,5 @@
+required = ["github.com/ZoltanLajosKis/go-octicons"]
+
 [[constraint]]
   name = "github.com/ZoltanLajosKis/go-assets"
   version = "0.2.2"
