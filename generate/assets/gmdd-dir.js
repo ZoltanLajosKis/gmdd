@@ -14,5 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e.textContent = "";
         e.appendChild(span);
     });
+
+    new Tablesort(document.getElementById('directory'));
 });
 

@@ -45,6 +45,12 @@ var (
 		{"__gmdd__/filesize.min.js",
 			"https://cdnjs.cloudflare.com/ajax/libs/filesize/3.5.10/filesize.min.js",
 			&as.Checksum{as.MD5, "c38d33dff49cb465987577c14c0c9200"}, nil},
+		{"__gmdd__/tablesort",
+			"https://github.com/tristen/tablesort/archive/v5.0.1.zip",
+			&as.Checksum{as.MD5, "33d8f31e23de760cd20e65d7ad709777"},
+			&as.Archive{as.Zip, as.ReMap(
+				"tablesort-5.0.1/dist/(?:(tablesort.min.js)|sorts/(tablesort.number.min.js))",
+				"__gmdd__/${1}${2}")}},
 	}
 )
 
