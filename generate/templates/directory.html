@@ -3,15 +3,15 @@ package templates
 
 import (
     "os"
-    "path"
+    "strings"
 )
 
-func Directory(w io.Writer, current string, parent string, list []os.FileInfo, totalSize int64) {
+func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64) {
 %>
 
 <!DOCTYPE html>
 <html>
-<title><%= current %></title>
+<title><%= strings.Join(crumbs, "/") %></title>
 <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="/__gmdd__/github-markdown.min.css" type="text/css" media="all">
@@ -19,6 +19,15 @@ func Directory(w io.Writer, current string, parent string, list []os.FileInfo, t
 </head>
 <body>
 <div class="markdown-body">
+  <% if crumbs[1] != "" { %>
+  <div id="directory-crumbs">
+    <a href="/">/</a>
+    <% for i := 1; i < len(crumbs) - 1; i++ { %>
+      <a href="<%= strings.Join(crumbs[:i+1], "/") %>"><%= crumbs[i] %></a> /
+    <% } %>
+    <%= crumbs[len(crumbs)-1] %>
+  </div>
+  <% } %>
   <table id="directory">
     <thead>
       <tr>
@@ -28,9 +37,17 @@ func Directory(w io.Writer, current string, parent string, list []os.FileInfo, t
       </tr>
     </thead>
     <tbody>
-    <% if parent != "" { %>
+    <% if crumbs[1] != "" { %>
       <tr>
-        <td class="name"><a href="<%= parent %>">..</a></td>
+        <td class="name">
+          <% if len(crumbs) == 2 { %>
+          <a href="/">
+          <% } else { %>
+          <a href="<%= strings.Join(crumbs[:len(crumbs)-1], "/") %>">
+          <% } %>
+            ..
+          </a>
+        </td>
         <td class="size">&mdash;</td>
         <td class="modtime"></td>
       </tr>
@@ -38,7 +55,13 @@ func Directory(w io.Writer, current string, parent string, list []os.FileInfo, t
     <% for _, info := range list { %>
       <tr>
         <td class="name">
-          <a href="<%= path.Join(current, info.Name()) %>"><%= info.Name() %></a>
+          <% if crumbs[1] == "" { %>
+          <a href="<%= "/" + info.Name()%>">
+          <% } else { %>
+          <a href="<%= strings.Join(append(crumbs, info.Name()), "/") %>">
+          <% } %>
+            <%= info.Name() %>
+          </a>
         </td>
         <td class="size">
         <% if info.IsDir() { %>

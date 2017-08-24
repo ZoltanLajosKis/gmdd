@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 	"os"
-	"path"
 	"sort"
+	"strings"
 
 	tpl "github.com/ZoltanLajosKis/gmdd/templates"
 	log "github.com/sirupsen/logrus"
@@ -61,12 +61,9 @@ func (s *directoryServer) serve(w http.ResponseWriter, r *http.Request, dirPath 
 		return list[i].Name() < list[j].Name()
 	})
 
-	parent := ""
-	if r.URL.Path != "/" {
-		parent, _ = path.Split(r.URL.Path)
-	}
+	crumbs := strings.Split(r.URL.Path, "/")
 
 	w.Header().Set("Content-Type", "text/html")
 	w.WriteHeader(http.StatusOK)
-	tpl.Directory(w, r.URL.Path, parent, list, size)
+	tpl.Directory(w, crumbs, list, size)
 }
