@@ -82,7 +82,7 @@ func (s *markdownServer) serve(w http.ResponseWriter, r *http.Request, path stri
 }
 
 func (r *renderer) RenderHeader(w io.Writer, node *blf.Node) {
-	tpl.Header(w, r.title)
+	tpl.MarkdownHeader(w, r.title)
 }
 
 func (r *renderer) RenderNode(w io.Writer, node *blf.Node, entering bool) blf.WalkStatus {
@@ -90,7 +90,7 @@ func (r *renderer) RenderNode(w io.Writer, node *blf.Node, entering bool) blf.Wa
 	case blf.Code:
 		if len(node.Literal) > 2 && bytes.HasPrefix(node.Literal, mathInlineDelim) &&
 			bytes.HasSuffix(node.Literal, mathInlineDelim) {
-			tpl.InlineMath(w, node.Literal)
+			tpl.MarkdownInlineMath(w, node.Literal)
 			return blf.GoToNext
 		}
 	case blf.CodeBlock:
@@ -108,5 +108,5 @@ func (r *renderer) RenderNode(w io.Writer, node *blf.Node, entering bool) blf.Wa
 }
 
 func (r *renderer) RenderFooter(w io.Writer, node *blf.Node) {
-	tpl.Footer(w)
+	tpl.MarkdownFooter(w)
 }
