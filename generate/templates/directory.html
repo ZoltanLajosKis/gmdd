@@ -70,7 +70,7 @@ func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64
           <%== info.Size() %>
         <% } %>
         </td>
-        <td class="modtime"><%== info.ModTime().Format("2006-01-02 15:04:05") %></td>
+        <td class="modtime moment"><%== info.ModTime().Format("2006-01-02 15:04:05") %></td>
       </tr>
     <% } %>
     </tbody>
@@ -79,8 +79,10 @@ func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64
         <td class="totalsize" colspan="3">Total size: <%== totalSize %></td>
       </tr>
     </tfoot>
-  </tbody>
+  </table>
 </div>
+<script src="/__gmdd__/moment.min.js"></script>
+<script src="/__gmdd__/gmdd-dir.js"></script>
 </body>
 </html>
 

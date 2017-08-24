@@ -14,8 +14,10 @@ var (
 			"generate/assets/favicon.ico", nil, nil},
 		{"__gmdd__/gmdd.css",
 			"generate/assets/gmdd.css", nil, nil},
-		{"__gmdd__/gmdd.js",
-			"generate/assets/gmdd.js", nil, nil},
+		{"__gmdd__/gmdd-md.js",
+			"generate/assets/gmdd-md.js", nil, nil},
+		{"__gmdd__/gmdd-dir.js",
+			"generate/assets/gmdd-dir.js", nil, nil},
 		{"__gmdd__/github-markdown.min.css",
 			"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.8.0/github-markdown.min.css",
 			&as.Checksum{as.MD5, "0d424ff347a923913a99682bffda185b"}, nil},
@@ -37,6 +39,9 @@ var (
 		{"__gmdd__/highlightjs.min.js",
 			"http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js",
 			&as.Checksum{as.MD5, "87cfd4f9aaf9cbe85f70454128541748"}, nil},
+		{"__gmdd__/moment.min.js",
+			"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js",
+			&as.Checksum{as.MD5, "aeb7908241d9f6d5a45e504cc4f2ec15"}, nil},
 	}
 )
 
