@@ -40,6 +40,13 @@
     font-size: 14px;
 }
 
+#directory td.name svg {
+    color: rgba(3,47,98,0.55);
+    display: inline-block;
+    fill: currentColor;
+    vertical-align: text-top;
+}
+
 #directory td.size {
     text-align: right;
 }

@@ -14,6 +14,12 @@
   revision = "5a25c6c0574ccce81860e7d55d193e2d5e84885f"
 
 [[projects]]
+  branch = "master"
+  name = "github.com/ZoltanLajosKis/go-octicons"
+  packages = ["."]
+  revision = "63edc3f9baf12c8529f9e1144e684554d4626e72"
+
+[[projects]]
   name = "github.com/alecthomas/kingpin"
   packages = ["."]
   revision = "1087e65c9441605df944fb12c33f0fe7072d18ca"
@@ -88,6 +94,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "1c176124dcb10f128e31c767f1cc1cca6fbf4e547b466ba4d25cb59b92d69760"
+  inputs-digest = "77929709c2317789121e88c108be27d107fce416c95b05937836b956a3a05a96"
   solver-name = "gps-cdcl"
   solver-version = 1

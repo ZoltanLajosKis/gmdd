@@ -4,6 +4,8 @@ package templates
 import (
     "os"
     "strings"
+
+    ico "github.com/ZoltanLajosKis/go-octicons"
 )
 
 func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64) {
@@ -63,6 +65,11 @@ func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64
           <a href="<%= "/" + info.Name() %>">
           <% } else { %>
           <a href="<%= strings.Join(append(crumbs, info.Name()), "/") %>">
+          <% } %>
+          <% if info.IsDir() { %>
+            <%== ico.FileDirectory.ToSVG(nil) %>
+          <% } else { %>
+            <%== ico.File.ToSVG(nil) %>
           <% } %>
             <%= info.Name() %>
           </a>

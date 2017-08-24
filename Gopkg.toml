@@ -3,6 +3,10 @@
   version = "0.2.2"
 
 [[constraint]]
+  name = "github.com/ZoltanLajosKis/go-octicons"
+  branch = "master"
+
+[[constraint]]
   name = "github.com/alecthomas/kingpin"
   version = "^2.2.5"
 
