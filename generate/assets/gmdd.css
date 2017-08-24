@@ -6,11 +6,15 @@
   padding: 45px;
 }
 
+/* Layout */
+
 @media (max-width: 767px) {
   .markdown-body {
     padding: 15px;
   }
 }
+
+/* Markdown */
 
 .inline-math {
     background-color: inherit;
@@ -19,5 +23,25 @@
 .language-mermaid svg {
     display: block;
     margin: auto;
+}
+
+/* Directory */
+
+#directory {
+    display: table;
+    font-size: 14px;
+}
+
+#directory td.size {
+    text-align: right;
+}
+
+#directory td.modtime {
+    text-align: right;
+}
+
+#directory td.totalsize {
+    border-style: none;
+    text-align: right;
 }
 

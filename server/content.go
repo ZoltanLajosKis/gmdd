@@ -12,14 +12,16 @@ import (
 )
 
 type contentHandler struct {
-	root     string
-	mdServer *markdownServer
+	root      string
+	dirServer *directoryServer
+	mdServer  *markdownServer
 }
 
 func newContentHandler(root string) *contentHandler {
 	return &contentHandler{
-		root:     root,
-		mdServer: newMarkdownServer(root),
+		root:      root,
+		dirServer: newDirectoryServer(root),
+		mdServer:  newMarkdownServer(root),
 	}
 }
 
@@ -74,12 +76,10 @@ func (h *contentHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func (h *contentHandler) serveDir(w http.ResponseWriter, r *http.Request, path string, l *log.Entry) {
-	l.Info("Serving directory.")
-	http.ServeFile(w, r, path)
+	h.dirServer.serve(w, r, path, l)
 }
 
 func (h *contentHandler) serveFile(w http.ResponseWriter, r *http.Request, path string, l *log.Entry) {
-
 	_, raw := r.URL.Query()["raw"]
 	if raw {
 		l.Info("Serving raw file.")
