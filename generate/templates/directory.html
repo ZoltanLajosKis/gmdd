@@ -63,24 +63,23 @@ func Directory(w io.Writer, crumbs []string, list []os.FileInfo, totalSize int64
             <%= info.Name() %>
           </a>
         </td>
-        <td class="size">
         <% if info.IsDir() { %>
-          &mdash;
+        <td class="size">&mdash;</td>
         <% } else { %>
-          <%== info.Size() %>
+        <td class="size filesize"><%== info.Size() %></td>
         <% } %>
-        </td>
         <td class="modtime moment"><%== info.ModTime().Format("2006-01-02 15:04:05") %></td>
       </tr>
     <% } %>
     </tbody>
     <tfoot>
       <tr>
-        <td class="totalsize" colspan="3">Total size: <%== totalSize %></td>
+        <td class="totalsize" colspan="3">Total size: <span class="filesize"><%== totalSize %></span></td>
       </tr>
     </tfoot>
   </table>
 </div>
+<script src="/__gmdd__/filesize.min.js"></script>
 <script src="/__gmdd__/moment.min.js"></script>
 <script src="/__gmdd__/gmdd-dir.js"></script>
 </body>

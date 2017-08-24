@@ -42,6 +42,9 @@ var (
 		{"__gmdd__/moment.min.js",
 			"https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js",
 			&as.Checksum{as.MD5, "aeb7908241d9f6d5a45e504cc4f2ec15"}, nil},
+		{"__gmdd__/filesize.min.js",
+			"https://cdnjs.cloudflare.com/ajax/libs/filesize/3.5.10/filesize.min.js",
+			&as.Checksum{as.MD5, "c38d33dff49cb465987577c14c0c9200"}, nil},
 	}
 )
 
