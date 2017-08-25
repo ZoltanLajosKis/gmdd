@@ -4,8 +4,10 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"net/url"
 	"os"
 	"os/signal"
+	"path"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -26,7 +28,7 @@ func Start(addr string, port int, root string) {
 
 	mux := http.NewServeMux()
 	mux.Handle("/", contentHandler)
-	mux.Handle("/favicon.ico", assetsHandler)
+	mux.Handle("/favicon.ico", withPrefix(assetsRoot, assetsHandler))
 	mux.Handle(assetsRoot, assetsHandler)
 
 	listenAddr := fmt.Sprintf("%s:%d", addr, port)
@@ -57,4 +59,15 @@ func Start(addr string, port int, root string) {
 			"error": err,
 		}).Fatal("Error shutting down.")
 	}
+}
+
+func withPrefix(prefix string, h http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		r2 := new(http.Request)
+		*r2 = *r
+		r2.URL = new(url.URL)
+		*r2.URL = *r.URL
+		r2.URL.Path = path.Join(prefix, r.URL.Path)
+		h.ServeHTTP(w, r2)
+	})
 }

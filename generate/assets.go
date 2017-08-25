@@ -10,14 +10,8 @@ import (
 
 var (
 	sources = []*as.Source{
-		{"favicon.ico",
-			"generate/assets/favicon.ico", nil, nil},
-		{"__gmdd__/gmdd.css",
-			"generate/assets/gmdd.css", nil, nil},
-		{"__gmdd__/gmdd-md.js",
-			"generate/assets/gmdd-md.js", nil, nil},
-		{"__gmdd__/gmdd-dir.js",
-			"generate/assets/gmdd-dir.js", nil, nil},
+		{"__gmdd__/",
+			"generate/assets/*", nil, nil},
 		{"__gmdd__/github-markdown.min.css",
 			"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.8.0/github-markdown.min.css",
 			&as.Checksum{as.MD5, "0d424ff347a923913a99682bffda185b"}, nil},

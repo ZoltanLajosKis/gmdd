@@ -4,8 +4,8 @@
 [[projects]]
   name = "github.com/ZoltanLajosKis/go-assets"
   packages = ["."]
-  revision = "63c67f25f6d8a79be78a0cf8462aa18f867bbab9"
-  version = "v0.2.2"
+  revision = "fb5e66b66aa243103abdb86d1123a1120e34ab87"
+  version = "v0.3.0"
 
 [[projects]]
   branch = "master"
@@ -94,6 +94,6 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "77929709c2317789121e88c108be27d107fce416c95b05937836b956a3a05a96"
+  inputs-digest = "94da1961bbb63257370c46a651feb2fee83bde7831a1e25cbb1f33f23ffab48f"
   solver-name = "gps-cdcl"
   solver-version = 1
